@@ -1,0 +1,52 @@
+These questions are for Part 2 and assume that you've finished implementing and running analysis.py.
+
+1. What happened to all the centroids? Why are there fewer than the 12 initial centroids?
+Answer:
+    I observed that for initial centroid, there is 12 centroids (centroid 0 to centroid 11)
+ However, the final only generated 11 centroids (centroid 1 to centroid 11). 
+ I am guessing that the data points that I am given only had 11 clusters but we are given 12 centroids.
+ In def main(data, init_centroids, dataset) in kmeans.py file, and in the "while loop" on line 224
+ it uses "assign points to centroids" and "update centroids" function to converge the data points into given centroids.
+ Those two functions, required not to print any centroid for final if there were no data point converging into the centroid.
+ For example, if I have 2 centroids - centroid 1 and centroid 2, and all my data points were clustered into centroid 1,
+ the "assign points to centroids" function and "update centroids" function will only work on centroid 1, and will not use centroid 2.
+    So, for our initial centroids (from 0 to 11), centroid 0 did not even have data points clustered into itself to begin with. 
+    Therefore, our algorithm omitted centroid 0 for our final outcome, which means that one centroid may not have data points assigned to it 
+
+
+2. What's the accuracy of the algorithm for the MNIST dataset? By looking at the
+centroids, which letters are easier to be distinguished by the algorithm,
+and which are harder?
+Answer: 
+The accuracy of the algorithm for the MNIST dataset is 0.604.
+Letters that are easier to be distinguished by the algorithm: 
+    M, W, S, O
+Letters that are harder to be distinguished by the algorithm:
+    I think any letter with below 0.5 accuracy, is harder to be distinguished by the algorithm. 
+So, centroid 6 (letter O), centroid 9 (letter P), centroid 4 (letter V), centroid 11 (letter S), and centroid 8 (letter V).
+It also seems like centroid 11 and 8 were especially hard to analyze.
+-
+Here is the data for individual letter's accuracy: 
+M
+centroid10 0.9545454545454546
+W
+centroid5 0.7647058823529411
+O
+centroid2 0.5490196078431373
+O
+centroid6 0.4375
+S
+centroid3 0.98
+O
+centroid7 0.9038461538461539
+P
+centroid9 0.4098360655737705
+V
+centroid4 0.4444444444444444
+S
+centroid1 0.5441176470588235
+S
+centroid11 0.20930232558139536
+V
+centroid8 0.34210526315789475
+-

@@ -1,0 +1,84 @@
+Name: ...
+CSE 160
+Homework 2
+
+For each problem that requires a written answer, write (or copy-and-paste)
+your answers in this file.  When you are done, you should have replaced all
+the ellipses (the three dots) with your answers.
+
+At the end, you will turn in this file and your modified
+dna_analysis.py program.
+
+
+Problem 1:
+
+a: In the for loop at line 111, there is a variable called "gc_count" 
+where it adds 1 to its value whenever there is G or C in the DNA. 
+If "gc_count = 0" gets commented out,the dna_analysis.py file doesn't
+recognize the line as a code anymore. So, there is no variable to assign
+what gc_count is as gc_count is not defined, and therefore dna_analysis.py 
+file has an error because it can't run the for loop. 
+
+b: If we commented "nucleotides = filename_to_string(file_name)" out, the 
+code wouldn't be able to read DNA sequence data and assign it into a variable
+called "nucleotides." If that happens, the for loop wouldn't be able to run, as
+nucleotides isn't an assigned value.
+
+Problem 2:
+
+GC-content: 0.4302926296296296
+AT-content: 0.5689938518518518
+
+Problem 3:
+
+G count: 5738773
+C count: 5879128
+A count: 7701287
+T count: 7661547
+
+Problem 4:
+
+sample_1.fastq
+sample_2.fastq
+sample_3.fastq
+sample_4.fastq
+sample_5.fastq
+sample_6.fastq
+test-high-gc-1.fastq
+test-high-gc-2.fastq
+test-moderate-gc-1.fastq
+test-moderate-gc-2.fastq
+
+I think it is because there are some white spaces,
+meaning that there are some 'spaces' on the DNA sequences
+that counted as a letter and was added to Total count and
+Length of nucleotides as both values only counts how many
+characters are in the DNA data, without checking if the character
+actually is one of G,C,A, or T. Since Sum of G+C+A+T verifies
+what is calculated is actually a nucleotide - the character 
+is for sure G,C,A, or T - it eliminates the spaces. Therefore,
+'Sum of G+C+A+T counts' value is different than 'Total count'
+and 'Length of nucleotides.'
+
+I think the quantity 'Sum of G+C+A+T counts' should be used
+as a denominator, but 'Total count' and 'Length of nucleotides'
+shouldn't be used as denominator. This is because only
+'Sum of G+C+A+T counts' value accurately evaluates 'A+C+G+T'
+because it only takes the sum of A+C+G+T like we need. However,
+'Total count' and 'Length of nucleotides' adds white spaces that
+isn't A,C,G, nor T into its value, so it is inaccurate representation
+of the data.
+
+Problem 5:
+
+AT/GC Ratio: 1.3223416174746196
+
+Problem 6:
+
+...
+
+
+Collaboration:
+
+None
+
